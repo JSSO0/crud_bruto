@@ -29,9 +29,6 @@ public class App {
             System.out.println("Opção inválida, digite novamente");
         }
     }
-
-
-
     }
 
     public static void Receber_Valores(Minerio minerio){

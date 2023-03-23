@@ -4,6 +4,7 @@ import java.util.Scanner;
 import crud_bruto.Minerio;
 
 public class App { 
+    
     public static void main(String[] args) throws Exception {
         while (true) {
         Scanner scanner = new Scanner(System.in);

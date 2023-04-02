@@ -1,5 +1,7 @@
 package crud_bruto;
 import java.util.Scanner;
+import java.util.Arrays;
+
 
 import crud_bruto.Array;
 
@@ -78,10 +80,10 @@ public class CrudBrutoArray {
     public static void Editar_Valores(Array array){
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Dados atuais são:\n" +
-        "Nome do minério: " + array.getNomeMinerio()+"\n"+
-        "Tamanho do minério: " + array.getTamanhoMinerio() + "\n" +
-        "Valor do minério: " + array.getValorMinerio() + "\n");
+       /* */ System.out.println("Dados atuais são:\n" +
+        "Nome do minério: " + Arrays.toString(array.getNomeMinerio())+"\n"+
+        "Tamanho do minério: " + Arrays.toString(array.getTamanhoMinerio()) + "\n" +
+        "Valor do minério: " + Arrays.toString(array.getValorMinerio()) + "\n");
 
         System.out.print("Escolha a opção que deseja realizar"+"\n"+
         "1 - Para editar o nome do Minerio"+"\n"
@@ -90,22 +92,29 @@ public class CrudBrutoArray {
         int opcao = scanner.nextInt();
 
         if(opcao==1){
-            String[] nomesMinerios = array.getNomeMinerio();
-            for(int i=0; i<nomesMinerios.length; i++){
-                System.out.println("O nome atual do minério é: " + nomesMinerios[i]);
+            String[] novoNomes = array.getNomeMinerio();
+            for(int i=0; i<novoNomes.length; i++){
+                System.out.println("O nome atual do minério é: " + novoNomes[i]);
                 System.out.println("Digite o novo nome do minério:");
                 String novoNome = scanner.next();
-                array.setNomeMinerio(nomesMinerios, i);
+                array.setNomeMinerio(novoNomes);
+                //array.setNomeMinerio(novoNomes);
                 System.out.println("O nome do minério foi atualizado para: " + array.getNomeMinerio()[i]);
             }
         }
 
         else if(opcao==2){
-            System.out.println("O tamanho atual do minério é: " + array.getTamanhoMinerio());
-            System.out.println("Digite o novo tamanho do minério:");
-            int novoTamanho = scanner.nextInt();
-            array.setTamanhoMinerio(novoTamanho);
-            System.out.println("O tamanho do minério foi atualizado para: " + array.getTamanhoMinerio());    
+            int[] novoTamanhos = array.getTamanhoMinerio();
+            for(int i=0; i<novoTamanhos.length; i++){
+                System.out.println("O Tamanho atual do minério é: " + novoTamanhos[i]);
+                System.out.println("Digite o novo tamanho do minério:"); 
+                int tamanhos = scanner.nextInt();
+                int[] valorTamanhos = new int[novoTamanhos.length + 1];
+                System.arraycopy(novoTamanhos, 0, valorTamanhos, 0, novoTamanhos.length);
+                valorTamanhos[novoTamanhos.length] = tamanhos;
+                array.setValorMinerio(valorTamanhos);
+                System.out.println("O valor do minério foi atualizado para: " + array.getTamanhoMinerio());
+            }
         }
         else{
             int[] valoresMinerios = array.getValorMinerio();
@@ -117,7 +126,7 @@ public class CrudBrutoArray {
                 System.arraycopy(valoresMinerios, 0, novoValores, 0, valoresMinerios.length);
                 novoValores[valoresMinerios.length] = novoValor;
                 array.setValorMinerio(novoValores);
-                System.out.println("O valor do minério foi atualizado para: " + array.getValorMinerio()));
+                System.out.println("O valor do minério foi atualizado para: " + array.getValorMinerio());
             }
        }
        while (true) {
@@ -155,13 +164,13 @@ public class CrudBrutoArray {
         else if(opcao==2){
             System.out.print("O Tamanho do minério é:"+array.getTamanhoMinerio()+"\n"); 
             System.out.print("agora é...\n"); 
-            array.setTamanhoMinerio(0);
+            array.setTamanhoMinerio(null);
             System.out.print("O Tamanho do minério é:"+array.getTamanhoMinerio()+"\n"); 
         }
         else if(opcao==3){
             System.out.print("O valor do minério é:"+array.getValorMinerio()+"\n");
             System.out.print("agora é...\n");
-            array.setValorMinerio(0); 
+            array.setValorMinerio(null); 
             System.out.print("O valor do minério é:"+array.getValorMinerio()+"\n");
         }
         while (true) {

@@ -1,16 +1,16 @@
 package crud_bruto;
 
 public class Array {
-    String nome_minerio[] = new String[10];
-    int tamanho_minerio[] = new int[10];
-    int valor_minerio[] = new int[10];
-    int opcao[] = new int[10];
+    public String nome_minerio[] = new String[100];
+    public int tamanho_minerio[] = new int[100];
+    public int valor_minerio[] = new int[100];
+    public int opcao[] = new int[100];
     
      public String[] getNomeMinerio() {
           return nome_minerio;
       }
   
-      public void setNomeMinerio(String[] nome_minerio, int i) {
+      public void setNomeMinerio(String[] nome_minerio) {
           this.nome_minerio = nome_minerio;
       }
   
@@ -38,6 +38,4 @@ public class Array {
           this.opcao = opcao;
       }
 
-    public void setTamanhoMinerio(int novoTamanho) {
-    }
 }

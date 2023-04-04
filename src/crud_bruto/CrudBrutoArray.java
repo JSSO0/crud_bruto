@@ -94,17 +94,16 @@ public class CrudBrutoArray {
         if(opcao==1){
             String[] novoNomes = array.getNomeMinerio();
             for(int i=0; i<novoNomes.length; i++){
-                System.out.println("O nome atual do minério é: " + novoNomes[i]);
+                System.out.println("O nome atual do minério é: " + Arrays.toString(novoNomes));
                 System.out.println("Digite o novo nome do minério:");
                 String novoNome = scanner.next();
                 array.setNomeMinerio(novoNomes);
-                //array.setNomeMinerio(novoNomes);
                 System.out.println("O nome do minério foi atualizado para: " + array.getNomeMinerio()[i]);
             }
         }
 
         else if(opcao==2){
-            int[] novoTamanhos = array.getTamanhoMinerio();
+            /*int[] novoTamanhos = array.getTamanhoMinerio();
             for(int i=0; i<novoTamanhos.length; i++){
                 System.out.println("O Tamanho atual do minério é: " + novoTamanhos[i]);
                 System.out.println("Digite o novo tamanho do minério:"); 
@@ -114,8 +113,18 @@ public class CrudBrutoArray {
                 valorTamanhos[novoTamanhos.length] = tamanhos;
                 array.setValorMinerio(valorTamanhos);
                 System.out.println("O valor do minério foi atualizado para: " + array.getTamanhoMinerio());
+            }*/
+            int[] novoTamanhos = array.getTamanhoMinerio();
+            for (int i = 0; i < novoTamanhos.length; i++) {
+                System.out.println("O Tamanho atual do minério é: " + novoTamanhos[i]);
+                System.out.println("Digite o novo tamanho do minério:"); 
+                int tamanho = scanner.nextInt();
+                novoTamanhos[i] = tamanho; // atualiza o tamanho no índice i
+                array.setTamanhoMinerio(novoTamanhos);
+                System.out.println("O valor do minério foi atualizado para: " + novoTamanhos[i]);
             }
         }
+
         else{
             int[] valoresMinerios = array.getValorMinerio();
             for(int i=0; i<valoresMinerios.length; i++){
